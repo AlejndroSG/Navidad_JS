@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+          
+            background: url(./img/IMG_1933.JPEG);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: parallax;
+            /* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(87,3,3,1) 0%, rgba(255,0,0,1) 100%);
+            display: flex; */
+          
+        }
+
+        div.galeria{
+            margin: auto;
+            max-width: 80%;
+            display: flex;
+            flex-flow:wrap;
+            justify-content: space-between;
+            
+   
+
+            .cuadro{
+                width: 32%;
+                height: 600px;
+                border:solid 20px #285c27;
+                box-shadow: 0 0 10px rgba(255,255,255,.5);
+                margin: 20px 0;
+                position: relative;
+                img{               
+                    width: 100%;
+                    height: 100%;
+                }                
+                
+               img.lazo {
+                width: 100px; 
+                height: 100px;              
+                position: absolute;
+                top: -50px;
+                left: -50px;
+             }
+                
+            }
+          
+        }
+        
+        .nieve{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .copoNieve{
+            /* width: 40px;
+            height: 40px; */
+            
+            position: fixed;
+            top: -10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: .8;
+            animation:animar linear infinite;
+        }
+
+
+        @keyframes animar {
+            0%{
+             transform: translateY(0) rotate(0);  
+             opacity: 0.8;
+            }
+
+            100%{
+                transform: translateY(100vh) rotate(360deg);  
+                opacity: 0.2;
+            }
+        }
+
+        
+      </style>
+</head>
+<body>  
+    
+    <!-- <div class="copoNieve"></div> -->
+
+
+    <div class="nieve">
+   
+
+        <div class="galeria">
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1918.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1919.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1920.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1921.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1922.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1923.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1924.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1925.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1926.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1927.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1928.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1929.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1930.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1931.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1932.JPEG" alt=""></div>
+            <div class="cuadro"> 
+                <img src="img/lazo.png" alt="" class="lazo">
+                <img src="img/IMG_1933.JPEG" alt=""></div>
+        </div>
+
+     
+    </div>
+    <script>
+            const nieve = document.querySelector(".nieve");
+
+            // Funcion para crear copos
+            function crearCopo() {
+                const copoNieve = document.createElement("div");
+                copoNieve.classList.add("copoNieve");
+
+                // Tamaño aleatorio copos entre 5px y 15px
+
+                const tam = Math.random() * 10 + 5;
+
+                copoNieve.style.width = `${tam}px`;
+                copoNieve.style.height = `${tam}px`;
+
+                // duración aleatoria entre 2s y 5s
+                const duracion = Math.random() * 3  + 2;
+                copoNieve.style.animationDuration =  `${duracion}s`;
+
+                // Posicion incial aleatoria
+                copoNieve.style.left = `${Math.random() * 100}vw`;
+
+                // Agregar copo a la nieve
+                nieve.appendChild(copoNieve);
+
+                setTimeout( () =>{
+                    copoNieve.remove();
+                }, duracion *1000);
+                
+            }
+
+        setInterval(crearCopo,200);
+
+            
+    </script>
+</body>
+</html>
